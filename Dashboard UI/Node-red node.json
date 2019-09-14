@@ -1,0 +1,562 @@
+[
+    {
+        "id": "88a95018.2010c",
+        "type": "tab",
+        "label": "Dashboard flow",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "63eb7ac9.22eed4",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "d565190a.23ba28",
+        "type": "subflow",
+        "name": "Update mode subflow",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 50,
+                "y": 30,
+                "wires": [
+                    {
+                        "id": "7435ecac.101af4"
+                    },
+                    {
+                        "id": "a73ad51e.76b958"
+                    }
+                ]
+            }
+        ],
+        "out": [],
+        "env": []
+    },
+    {
+        "id": "75193e42.f26ca",
+        "type": "subflow",
+        "name": "SolarEmulation",
+        "info": "",
+        "category": "",
+        "in": [],
+        "out": [
+            {
+                "x": 420,
+                "y": 100,
+                "wires": [
+                    {
+                        "id": "7c0a49fb.a9e968",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": []
+    },
+    {
+        "id": "4fba3f8a.18aef",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Ahmad Tab",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "1f330849.2e7c68",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#963838",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#4e4334",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "reset": false
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#963838",
+                    "edited": true
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#963838",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#000000",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#c15959",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#963838",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "123aa4b3.cd573b",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "cd445ffd.334d",
+        "type": "mqtt-broker",
+        "z": "d565190a.23ba28",
+        "name": "conceptrpi broker",
+        "broker": "conceptrpi",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "3141019d.ff653e",
+        "type": "serial-port",
+        "z": "75193e42.f26ca",
+        "serialport": "/dev/ttyACM0",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "newline": "\\r\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "1bb894.72a0e76d",
+        "type": "ui_group",
+        "z": "",
+        "name": "Home Energy Consumption",
+        "tab": "123aa4b3.cd573b",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "b8b4d09e.12d45",
+        "type": "mqtt-broker",
+        "z": "",
+        "name": "coneptBr",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "68704121.11b3d",
+        "type": "ui_group",
+        "z": "",
+        "name": "Power generation",
+        "tab": "123aa4b3.cd573b",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "97afee03.6d383",
+        "type": "ui_group",
+        "z": "",
+        "name": "Power Consumption History",
+        "tab": "123aa4b3.cd573b",
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "7435ecac.101af4",
+        "type": "mqtt out",
+        "z": "d565190a.23ba28",
+        "name": "",
+        "topic": "mode/1",
+        "qos": "2",
+        "retain": "false",
+        "broker": "cd445ffd.334d",
+        "x": 380,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "7c0a49fb.a9e968",
+        "type": "serial in",
+        "z": "75193e42.f26ca",
+        "name": "",
+        "serial": "3141019d.ff653e",
+        "x": 240,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a0d68ccb.cc9b7",
+        "type": "ui_gauge",
+        "z": "63eb7ac9.22eed4",
+        "name": "",
+        "group": "1bb894.72a0e76d",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Washing Machine Consumption",
+        "label": "Watts",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "3000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 330,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "3fd5c80e.b7e2f8",
+        "type": "ui_gauge",
+        "z": "63eb7ac9.22eed4",
+        "name": "",
+        "group": "1bb894.72a0e76d",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Generic Plug (1) Consumption",
+        "label": "Watts",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "3000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 330,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "91bcbaba.ce6aa8",
+        "type": "mqtt in",
+        "z": "63eb7ac9.22eed4",
+        "name": "",
+        "topic": "report/1",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "b8b4d09e.12d45",
+        "x": 110,
+        "y": 100,
+        "wires": [
+            [
+                "a0d68ccb.cc9b7",
+                "e6c1e7a3.4c8198"
+            ]
+        ]
+    },
+    {
+        "id": "8eb251a9.c3b55",
+        "type": "mqtt in",
+        "z": "63eb7ac9.22eed4",
+        "name": "",
+        "topic": "report/2",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "b8b4d09e.12d45",
+        "x": 110,
+        "y": 220,
+        "wires": [
+            [
+                "3fd5c80e.b7e2f8",
+                "5e49366.eff59c8"
+            ]
+        ]
+    },
+    {
+        "id": "cd6d178e.d16238",
+        "type": "ui_dropdown",
+        "z": "63eb7ac9.22eed4",
+        "name": "",
+        "label": "Home Power Plan",
+        "tooltip": "",
+        "place": "Select a plan",
+        "group": "1bb894.72a0e76d",
+        "order": 0,
+        "width": "0",
+        "height": "0",
+        "passthru": true,
+        "options": [
+            {
+                "label": "Normal Mode",
+                "value": "0",
+                "type": "str"
+            },
+            {
+                "label": "Eco Mode",
+                "value": "1",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "",
+        "x": 150,
+        "y": 420,
+        "wires": [
+            [
+                "73dfccb1.991ea4"
+            ]
+        ]
+    },
+    {
+        "id": "73dfccb1.991ea4",
+        "type": "subflow:d565190a.23ba28",
+        "z": "63eb7ac9.22eed4",
+        "name": "",
+        "env": [],
+        "x": 400,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "a73ad51e.76b958",
+        "type": "mqtt out",
+        "z": "d565190a.23ba28",
+        "name": "",
+        "topic": "mode/2",
+        "qos": "2",
+        "retain": "false",
+        "broker": "cd445ffd.334d",
+        "x": 380,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "9af0b6a8.c83ba8",
+        "type": "subflow:75193e42.f26ca",
+        "z": "88a95018.2010c",
+        "name": "",
+        "x": 180,
+        "y": 260,
+        "wires": [
+            [
+                "e223a52a.ae1a48"
+            ]
+        ]
+    },
+    {
+        "id": "e223a52a.ae1a48",
+        "type": "ui_gauge",
+        "z": "88a95018.2010c",
+        "name": "Power generation",
+        "group": "68704121.11b3d",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "gauge",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "5000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 540,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "e6c1e7a3.4c8198",
+        "type": "ui_chart",
+        "z": "63eb7ac9.22eed4",
+        "name": "",
+        "group": "97afee03.6d383",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "Washing Machine Consumption (Over the day)",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "outputs": 1,
+        "x": 380,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5e49366.eff59c8",
+        "type": "ui_chart",
+        "z": "63eb7ac9.22eed4",
+        "name": "",
+        "group": "97afee03.6d383",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "Generic Plug (1) Consumption (Over the day)",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "outputs": 1,
+        "x": 370,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    }
+]
